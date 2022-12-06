@@ -1,0 +1,65 @@
+---
+name: pharma-network-transporter
+version: 1.0.0
+client:
+  organization: transporter
+  connection:
+    timeout:
+      peer:
+        endorser: "300"
+organizations:
+  transporter:
+    mspid: transporterMSP
+    peers:
+      - peer0.transporter.pharma-network.com
+    certificateAuthorities:
+      - ca.transporter.pharma-network.com
+peers:
+  peer0.transporter.pharma-network:
+    url: grpcs://localhost:12051
+    tlsCACerts:
+      pem: |
+        -----BEGIN CERTIFICATE-----
+          MIICWDCCAf+gAwIBAgIUVqPmGBY8YoROuXFCnuQ8A6K07HkwCgYIKoZIzj0EAwIw
+          gYgxCzAJBgNVBAYTAlVLMRIwEAYDVQQIEwlIYW1wc2hpcmUxEDAOBgNVBAcTB0h1
+          cnNsZXkxJzAlBgNVBAoTHnRyYW5zcG9ydGVyLnBoYXJtYS1uZXR3b3JrLmNvbTEq
+          MCgGA1UEAxMhY2EudHJhbnNwb3J0ZXIucGhhcm1hLW5ldHdvcmsuY29tMB4XDTIy
+          MTIwMjAyNTQwMFoXDTM3MTEyODAyNTQwMFowgYgxCzAJBgNVBAYTAlVLMRIwEAYD
+          VQQIEwlIYW1wc2hpcmUxEDAOBgNVBAcTB0h1cnNsZXkxJzAlBgNVBAoTHnRyYW5z
+          cG9ydGVyLnBoYXJtYS1uZXR3b3JrLmNvbTEqMCgGA1UEAxMhY2EudHJhbnNwb3J0
+          ZXIucGhhcm1hLW5ldHdvcmsuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE
+          RAiz0c4b28lFqWpgEmPHWF3BYy/iyQIb+Zs4VehPS7Y5Fy2gNq/ece1N4WrIu1fB
+          HYAYV3V77Mj++4ZKlvZe66NFMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQI
+          MAYBAf8CAQEwHQYDVR0OBBYEFKdzsrhTK1+duBtANJU0yecvjMFGMAoGCCqGSM49
+          BAMCA0cAMEQCIB3qfjHb2Agc1H9bh7Oxbnahj9eE+yyXyQWsM0AVEWu8AiA2qMve
+          bhhDXcHWI5Me3UgROn7OojBid0XVRw0nXp9vGA==
+          -----END CERTIFICATE-----
+          
+    grpcOptions:
+      ssl-target-name-override: peer0.transporter.pharma-network.com
+      hostnameOverride: peer0.transporter.pharma-network.com
+certificateAuthorities:
+  ca.transporter.upstac.com:
+    url: https://localhost:6054
+    caName: ca-transporter
+    tlsCACerts:
+      pem:
+        - |
+          -----BEGIN CERTIFICATE-----
+          MIICWDCCAf+gAwIBAgIUVqPmGBY8YoROuXFCnuQ8A6K07HkwCgYIKoZIzj0EAwIw
+          gYgxCzAJBgNVBAYTAlVLMRIwEAYDVQQIEwlIYW1wc2hpcmUxEDAOBgNVBAcTB0h1
+          cnNsZXkxJzAlBgNVBAoTHnRyYW5zcG9ydGVyLnBoYXJtYS1uZXR3b3JrLmNvbTEq
+          MCgGA1UEAxMhY2EudHJhbnNwb3J0ZXIucGhhcm1hLW5ldHdvcmsuY29tMB4XDTIy
+          MTIwMjAyNTQwMFoXDTM3MTEyODAyNTQwMFowgYgxCzAJBgNVBAYTAlVLMRIwEAYD
+          VQQIEwlIYW1wc2hpcmUxEDAOBgNVBAcTB0h1cnNsZXkxJzAlBgNVBAoTHnRyYW5z
+          cG9ydGVyLnBoYXJtYS1uZXR3b3JrLmNvbTEqMCgGA1UEAxMhY2EudHJhbnNwb3J0
+          ZXIucGhhcm1hLW5ldHdvcmsuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE
+          RAiz0c4b28lFqWpgEmPHWF3BYy/iyQIb+Zs4VehPS7Y5Fy2gNq/ece1N4WrIu1fB
+          HYAYV3V77Mj++4ZKlvZe66NFMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQI
+          MAYBAf8CAQEwHQYDVR0OBBYEFKdzsrhTK1+duBtANJU0yecvjMFGMAoGCCqGSM49
+          BAMCA0cAMEQCIB3qfjHb2Agc1H9bh7Oxbnahj9eE+yyXyQWsM0AVEWu8AiA2qMve
+          bhhDXcHWI5Me3UgROn7OojBid0XVRw0nXp9vGA==
+          -----END CERTIFICATE-----
+          
+    httpOptions:
+      verify: false
